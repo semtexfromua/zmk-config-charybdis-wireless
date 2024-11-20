@@ -36,9 +36,11 @@
             compatible = "zmk,behavior-hold-tap";
             label = "u_mt";
             #binding-cells = <2>;
-            tapping_term_ms = <U_TAPPING_TERM>;
+            tapping_term_ms = <0>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
+
+            tapping-term-ms = <150>;
         };
 
         u_lt: u_lt {
@@ -69,16 +71,16 @@
 &trans  &kp Q               &kp W          &kp E             &kp R             &kp T        &kp Y        &kp U              &kp I              &kp O          &kp P                   &trans
 &trans  &u_mt LEFT_SHIFT A  &u_mt LCTRL S  &u_mt LEFT_ALT D  &u_mt LEFT_WIN F  &kp G        &kp H        &u_mt RIGHT_WIN J  &u_mt RIGHT_ALT K  &u_mt RCTRL L  &u_mt RIGHT_SHIFT SEMI  &trans
 &trans  &lt 5 Z             &kp X          &kp C             &kp V             &kp B        &kp N        &kp M              &kp COMMA          &kp DOT        &kp FSLH                &trans
-                                           &lt 3 ESCAPE      &lt 2 SPACE       &lt 5 TAB    &lt 1 ENTER  &kp BACKSPACE
+                                           &lt 3 ESCAPE      &lt 2 SPACE       &lt 1 TAB    &lt 1 ENTER  &kp BACKSPACE
             >;
         };
 
         NAV {
             bindings = <
-&trans  &kp NUMBER_1    &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5       &kp PAGE_DOWN    &kp HOME        &kp UP_ARROW    &kp END          &kp PAGE_DOWN   &kp F1
-&trans  &kp LEFT_SHIFT  &kp LCTRL     &kp LEFT_ALT  &kp LEFT_WIN  &kp PRINTSCREEN    &kp CAPSLOCK     &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp KP_NUMLOCK  &kp F10
-&trans  &kp NUMBER_6    &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0       &kp N1           &kp N2          &kp N3          &trans           &trans          &kp F20
-                                      &trans        &trans        &trans             &lt 3 BACKSPACE  &kp LSHFT
+&trans  &kp NUMBER_1    &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5    &kp PAGE_DOWN    &kp HOME         &kp UP_ARROW    &kp END          &kp PAGE_DOWN  &trans
+&trans  &kp LEFT_SHIFT  &kp LCTRL     &mkp MB2      &mkp MB1      &mkp MB3        &kp RIGHT_WIN    &kp LEFT_ARROW   &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp RIGHT_ALT  &trans
+&trans  &kp NUMBER_6    &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0    &kp CAPSLOCK     &kp PRINTSCREEN  &kp N3          &trans           &trans         &trans
+                                      &trans        &trans        &mo 1           &lt 3 BACKSPACE  &kp LSHFT
             >;
         };
 
@@ -87,7 +89,7 @@
 &bt BT_CLR  &kp NUMBER_6  &kp N7        &kp N8        &kp N9             &kp N0      &kp EXCLAMATION  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp ASTERISK  &kp AMPERSAND         &kp DEL
 &trans      &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4       &kp N5      &kp EQUAL        &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp PLUS      &kp PERCENT           &kp GRAVE
 &trans      &kp AT_SIGN   &kp PIPE      &kp SQT       &kp DOUBLE_QUOTES  &kp HASH    &kp UNDERSCORE   &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp MINUS     &kp NON_US_BACKSLASH  &kp TILDE
-                                        &trans        &trans             &mo 3       &kp RETURN       &kp BACKSPACE
+                                        &trans        &mo 2              &trans      &kp RETURN       &kp BACKSPACE
             >;
         };
 
@@ -96,16 +98,16 @@
 &trans  &trans   &kp F1  &kp F2   &kp F3   &kp F4     &bt BT_SEL 0  &bt BT_SEL 1      &bt BT_SEL 2       &bt BT_SEL 3     &bt BT_SEL 4  &bt BT_CLR
 &trans  &kp DEL  &kp F5  &kp F6   &kp F7   &kp F8     &out OUT_TOG  &kp K_PLAY_PAUSE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_MUTE    &kp LALT
 &trans  &trans   &kp F9  &kp F10  &kp F11  &kp F12    &kp DOLLAR    &trans            &trans             &trans           &trans        &to 0
-                         &trans   &trans   &trans     &trans        &trans
+                         &mo 3    &trans   &trans     &trans        &trans
             >;
         };
 
         AUTO-MOUSE {
             bindings = <
-&trans  &trans  &trans  &trans     &trans  &trans       &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans     &trans  &trans       &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans     &trans  &trans       &trans  &trans  &trans  &trans  &trans  &trans
-                        &mkp LCLK  &trans  &mkp RCLK    &trans  &trans
+&trans  &trans        &trans     &trans    &trans    &trans      &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LEFT_ALT  &kp LCTRL  &mkp MB2  &mkp MB1  &mkp MB3    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans        &trans     &trans    &trans    &trans      &trans  &trans  &trans  &trans  &trans  &trans
+                                 &mo 3     &mo 2     &mo 1       &trans  &trans
             >;
         };
 
