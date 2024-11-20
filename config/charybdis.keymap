@@ -32,6 +32,22 @@
     };
 
     behaviors {
+
+        trackball_to_arrows: trackball_to_arrows {
+            compatible = "zmk,behavior-sensor-to-keys";
+            label = "Trackball to Arrow Keys";
+    
+            axis-x {
+                negative = <&kp LEFT_ARROW>;  /* Движение влево */
+                positive = <&kp RIGHT_ARROW>; /* Движение вправо */
+            };
+    
+            axis-y {
+                negative = <&kp UP_ARROW>;   /* Движение вверх */
+                positive = <&kp DOWN_ARROW>; /* Движение вниз */
+            };
+        };
+
         u_mt: u_mt {
             compatible = "zmk,behavior-hold-tap";
             label = "u_mt";
@@ -77,9 +93,9 @@
 
         NAV {
             bindings = <
-&trans  &kp NUMBER_1    &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5    &kp PAGE_DOWN    &kp HOME         &kp UP_ARROW    &kp END          &kp PAGE_DOWN  &trans
-&trans  &kp LEFT_SHIFT  &kp LCTRL     &mkp MB2      &mkp MB1      &mkp MB3        &kp RIGHT_WIN    &kp LEFT_ARROW   &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp RIGHT_ALT  &trans
-&trans  &kp NUMBER_6    &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0    &kp CAPSLOCK     &kp PRINTSCREEN  &kp N3          &trans           &trans         &trans
+&trans  &kp NUMBER_1    &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5    &kp PAGE_DOWN    &kp HOME         &kp UP_ARROW    &kp END          &kp PAGE_DOWN         &trans
+&trans  &kp LEFT_SHIFT  &kp LCTRL     &mkp MB2      &mkp MB1      &mkp MB3        &kp RIGHT_WIN    &kp LEFT_ARROW   &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp RIGHT_ALT         &trans
+&trans  &kp NUMBER_6    &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0    &kp CAPSLOCK     &kp PRINTSCREEN  &kp N3          &trans           &trackball_to_arrows  &trans
                                       &trans        &trans        &mo 1           &lt 3 BACKSPACE  &kp LSHFT
             >;
         };
